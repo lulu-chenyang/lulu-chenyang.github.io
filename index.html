@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+	<meta charset="utf-8">
+	<script src="lib/d3.v5.min.js"></script>
+	<script type="text/javascript" src="http://livejs.com/live.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+
+path.link {
+  fill: none;
+/*  stroke: #666;*/
+/*  stroke-width: 1.5px;*/
+}
+
+circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke: black;
+  stroke-width: 0px;
+}
+
+text {
+  fill: #000;
+  font: 12px sans-serif;
+  pointer-events: none;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  
+}
+
+.btn{
+  text-align: left;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: #ccc;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.containerS {
+  padding: 10px 40px;
+  position: relative;
+
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.containerS::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #ccc;
+  border: 4px solid #ccc;
+
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: -6px;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #ccc;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -13px;
+}
+
+/* The actual content */
+.contentS {
+  padding: 20px 30px;
+  border-color: #ccc;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .containerS {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .containerS::before {
+  left: 50px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 0px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+}
+
+</style>
+<body>
+<div class="containerName fixed-top" style="margin-top: 64px;margin-left: 8%;">
+	
+  
+		<div class="col-sm-6 col-md-4" style="margin-bottom: 56px;left: 0;">
+			<h1 id="myName">CHENYANG LU</h1>
+			
+      <p><br>email: chenyanglulu@gmail.com</b>
+        <br>Tel: 2675745416</br></p>
+	  </div>
+
+			
+				
+</div>
+
+	
+<div class="col-sm-6">
+<script>
+
+// get the data
+links =  [
+  {
+    "source": "SMART HOME",
+    "target": "HEALTH",
+    "value": 3
+  },
+  {
+    "source": "I0T",
+    "target": "HEALTH",
+    "value": 3
+  },
+  {
+    "source": "ARCHITECTURE",
+    "target": "WELLNESS",
+    "value": 1
+  },
+  {
+    "source": "DESIGN",
+    "target": "WELLNESS",
+    "value": 0
+  }, 
+  {
+    "source": "IOT",
+    "target": "BUILDING",
+    "value": 1
+  },
+  {
+    "source": "ARCHITECTURE",
+    "target": "EXPERIENCE",
+    "value": 1
+  },
+  {
+    "source": "DESIGN",
+    "target": "INTERACTION",
+    "value": 0
+  },
+  {
+    "source": "INTERACTION",
+    "target": "DESIGN",
+    "value": 0
+  },
+  {
+    "source": "WEB DESIGN",
+    "target": "HTML",
+    "value": 0
+  },
+  {
+    "source": "HTML",
+    "target": "CSS",
+    "value": 0
+  },
+  {
+    "source": "INTERACTION",
+    "target": "JAVASCRIPT",
+    "value": 0
+  }
+];
+
+var nodes = {};
+
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+    link.source = nodes[link.source] ||
+        (nodes[link.source] = {name: link.source});
+    link.target = nodes[link.target] ||
+        (nodes[link.target] = {name: link.target});
+});
+
+var width = 1550,
+    height = 600;
+
+var force = d3.forceSimulation()
+    .nodes(d3.values(nodes))
+    .force("link", d3.forceLink(links).distance(500))
+    .force('center', d3.forceCenter(width *2/ 3, height / 2))
+    .force("x", d3.forceX())
+    .force("y", d3.forceY())
+    .force("charge", d3.forceManyBody().strength(-200))
+    .alphaTarget(1)
+    .on("tick", tick);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// add the links and the arrows
+
+var path = svg.append("g")
+.selectAll("path")
+.data(links)
+.enter()
+.append("path")
+// .attr("stroke", function(d){
+//   if (d.value == 0) {
+//     return "green";
+//   } else { return "blue"}
+// })
+// .attr("stroke-width", function(d){
+//   if (d.value == 0) {
+//     return "3";
+//   } else { return "1.5"}
+// })
+.attr("class", function(d) { return "link " + d.type; });
+
+// path.attr("stroke" "blue")
+
+// define the nodes
+var node = svg.selectAll(".node")
+    .data(force.nodes())
+  .enter().append("g")
+    .attr("class", "node")
+    .on("dblclick",function(d){ d3.select(this).classed("fixed", d.fixed = false); })
+    .call(d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended)
+
+      );
+
+// add the nodes
+node.append("circle")
+    .attr("r", function(d) {
+      d.weight = path.filter(function(p) {
+      return p.source.index == d.index || p.target.index == d.index
+    }).size();
+    return d.weight * 8;})
+    .style("fill", function(d) {return d.colr; })
+    .each(function() {
+      var clickC = d3.select(this);
+      var state = false;
+      clickC.on("click", function() {
+        state = !state;
+        if (state) {
+          var workWindow = window.open("work.html", "_self");
+          
+          clickC.style("fill", "pink");
+        } else {
+          clickC.style("fill", function(d) { return d.color; });
+        }
+      });
+    });
+
+// add the text
+
+node.append("text")
+  .text(function(d){
+    return d.name;
+  })
+  .attr("x", -50)
+  .attr("y", 50);
+
+
+
+
+// add the curvy lines
+function tick() {
+    path.attr("d", function(d) {
+        var dx = d.target.x - d.source.x,
+            dy = d.target.y - d.source.y,
+            dr = Math.sqrt(dx * dx + dy * dy);
+        return "M" +
+            d.source.x + "," +
+            d.source.y + "A" +
+            dr + "," + dr + " 0 0,1 " +
+            d.target.x + "," +
+            d.target.y;
+    });
+
+    node
+        .attr("transform", function(d) {
+        return "translate(" + d.x + "," + d.y + ")"; })
+};
+
+// function edgeColor(){
+//   path.attr("stroke", function(d) {
+//     if (true) {
+//       link.value = 0
+//     }
+//     return "blue";
+//   })
+// };
+
+
+function dragstarted(d) {
+      if (!d3.event.active) force.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    };
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+};
+
+function dragended(d) {
+  if (!d3.event.active) force.alphaTarget(0);
+  if (d.fixed == true){
+     d.fx = d.x;
+     d.fy = d.y;
+  }
+  else{
+    d.fx = null;
+    d.fy = null;
+  }
+
+};
+// function dblclick(d) {
+//   d3.select(this).classed("fixed", d.fixed = false);
+// };
+
+// function dragstart(d) {
+//   d3.select(this).classed("fixed", d.fixed = true);
+// };
+
+
+
+// function bdlclick(d) {
+//   d.fx = d3.event.x;
+//   d.fy = d3.event.y;
+// };
+
+</script>
+</div>
+<div class="container" style="margin-left: 25%;margin-top: 5%;">
+  <div class="timeline">
+  <div class="containerS left">
+    <div class="contentS">
+      <h2>2019</h2>
+      <button type="button" class="btn" data-toggle="collapse" data-target="#delos"><h5>Senior Associate, Human-Computer Interaction and Building Technology</h5><h6>Delos Living LLC, New York, US, 02/2017 - Present</h6></button>
+      <div id="delos" class="collapse">
+          <ul class="list-job-detail">
+          <li class="task">Designed and developed the human-computer interaction logic for wellness
+  experience</li>
+          <li class="task">Lead the front-end design and development of DARWIN testbed</li>
+          <li class="task">Lead the product prototyping and develop design alternative</li>
+          <li class="task">Draft user surveys and organized user interview</li>
+          <li class="task">Worked closely with behavior scientist, building scientist, data scientist to plan
+  and execute research, and generate IPs</li>
+          <li class="task">Conducted systematic literature review on cutting edge building science and
+  sensor technology</li>
+          <li class="task">Designed and developed the sensor criteria and sensor installation guide</li>
+          <li class="task">Managed and international team on the design and construction</li>
+          <li class="task">Organize multiple biddings and design meetings with architects, engineers,
+  interior designers, and stakeholders</li>
+          <li class="task">Reviewed design drawings and renderings</li>
+          <li class="task">Designed and developed new metrics to evaluate the health impact of
+  environmental factors</li>
+          <li class="task">Conducted lighting simulation and comfort simulation to create impact database</li>
+        </ul>
+      </div>
+
+<button type="button" class="btn" data-toggle="collapse" data-target="#jobDescription"><h5>Candidate of MS. in Computer Science, </h5><h6>Specialized in Interactive Intelligence, Georgia Institute of Technology, US, 09/2018 - Present</h6></button>
+      <div id="jobDescription" class="collapse">
+          <ul class="list-job-detail">
+          <li class="task">Human-Computer Interaction</li>
+          <li class="task">Database Concept and Design</li>
+          <li class="task">Data Analysis and Visualization</li>
+          <li class="task">Software Development</li>
+        </ul>
+      </div>
+      
+        
+    </div>
+  </div>
+  <div class="containerS right">
+    <div class="contentS">
+      <h2>2018</h2>
+      <button type="button" class="btn" data-toggle="collapse" data-target=""><h5>Certificate of Human-Computer Interaction</h5><h6>MIT, 08/2018</h6></button>
+       <button type="button" class="btn" data-toggle="collapse" data-target=""><h5>Certificate of WELL AP</h5><h6>GBCI, 12/2018</h6></button>
+      
+
+      
+    </div>
+  </div>
+
+  <div class="containerS left">
+    <div class="contentS">
+      <h2>2017</h2>
+      <button type="button" class="btn" data-toggle="collapse" data-target="#StudioTEKA"><h5>Junior Architect</h5><h6>StudioTEKA LLC, New York, US, 11/2015 - 02/2017</h6></button>
+      <div id="StudioTEKA" class="collapse">
+          <li class="task">Worked on multiple architecture design projects with different scale</li>
+          <li class="task">Supported design teams through all phases of the project to identify and quantify the impact of high-performance building strategies through climate analysis and daylighting simulation</li>
+          <li class="task">Coordinate in project teams and advise intern</li>
+          <li class="task">Organize clients meeting and presentation</li>
+          <li class="task">Office website front end design and development</li>
+          <li class="task">Office website front end design and development</li>
+          <li class="task">Literature review and book editing, 2100: A Dystopian Utopia</li>
+        </ul>
+      </div>
+
+      
+    </div>
+  </div>
+  
+  <div class="containerS right">
+    <div class="contentS">
+      <h2>2015</h2>
+      <button type="button" class="btn" data-toggle="collapse" data-target="#penn"><h5>Master of Environmental Building Design, GPA 3.91/4</h5>
+      <h6>University of Pennsylvania, School of Design, Philadelphia, PA, USA, 08/ 2014 - 05/2015</h6></button>
+      <div id="penn" class="collapse">
+        <ul class="list-job-detail">
+          <li class="task">Providing a platform for architects, engineers, data scientists and students to
+  learn and share building science knowledge and sustainable design strategiese</li>
+          <li class="task">First Chinese Version Tutorial for Ladybug & Honeybee (Focus on climate, day
+  lighting, energy, and human comfort)</li>
+          <li class="task">Spread interesting meetings & events related to sustainability and design</li>
+          <li class="task">Introduce new technologies and simulation tools</li>
+        </ul>
+      </div>
+
+      
+      <button type="button" class="btn" data-toggle="collapse" data-target="#enArch"><h5>Founder, EnArch Wechat Platform, </h5><h6>06/2015 - present</h6></button>
+      <div id="enArch" class="collapse">
+        <ul class="list-job-detail">
+          <li class="task">Providing a platform for architects, engineers, data scientists and students to
+  learn and share building science knowledge and sustainable design strategiese</li>
+          <li class="task">First Chinese Version Tutorial for Ladybug & Honeybee (Focus on climate, day
+  lighting, energy, and human comfort)</li>
+          <li class="task">Spread interesting meetings & events related to sustainability and design</li>
+          <li class="task">Introduce new technologies and simulation tools</li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn" data-toggle="collapse" data-target="#penn"><h5>Master of Environmental Building Design, GPA 3.91/4</h5>
+      <h6>University of Pennsylvania, School of Design, Philadelphia, PA, USA, 08/ 2014 - 05/2015</h6></button>
+      <div id="penn" class="collapse">
+        <ul class="list-job-detail">
+          <li class="task">Providing a platform for architects, engineers, data scientists and students to
+  learn and share building science knowledge and sustainable design strategiese</li>
+          <li class="task">First Chinese Version Tutorial for Ladybug & Honeybee (Focus on climate, day
+  lighting, energy, and human comfort)</li>
+          <li class="task">Spread interesting meetings & events related to sustainability and design</li>
+          <li class="task">Introduce new technologies and simulation tools</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="containerS left">
+    <div class="contentS">
+      <h2>2011</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="containerS right">
+    <div class="contentS">
+      <h2>2007</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
