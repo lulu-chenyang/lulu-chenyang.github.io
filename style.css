@@ -1,0 +1,357 @@
+  
+
+  .container{
+    margin-top: 5%;
+  }
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  .nav_img{
+  	width: 100%;
+  }
+    /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 80%;
+  }
+  .card_project{
+    margin-top: 10%;
+/*    background-color: : lightgray;
+*/    box-shadow: gray;
+  }
+
+  .card_img{
+/*    height: 70%;
+*/    width: 90%;
+    margin: auto;
+/*    background-color: lightgray;
+*/  }
+
+  .card-img-top{
+
+    width: 100%;
+    background-color: lightgray;
+  }
+  .card_des{
+    width: 90%;
+    margin: auto;
+    padding-top: 5%;
+/*  padding: 5%;
+*/
+/*  width: 100%;
+*//*  background-color: lightgray;
+*/}
+  .card{
+    height: 100%;
+  }
+  .row{
+    margin-top: 5%;
+  }
+  .slogan{
+    margin-bottom: 15%;
+/*    margin-right: 10%;
+*/    font-family: 'Roboto Slab', serif;
+    font-size: 42px;
+
+  }
+  mark{
+    background-color: yellow;
+  }
+
+  .carousel-item{
+
+    position: relative;
+    .transition(.1s ease-in-out left);
+
+  }
+
+
+  .parent {
+/*    border: 1px solid blue;
+*/    
+    height: 60%;
+/*    width: 90%;
+*/    overflow: hidden;
+    position: relative;
+    float: left;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .child {
+  /*    height: 100%;
+      width: 100%;*/
+      background-size: cover;
+      background-repeat: no-repeat;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+  }
+  .parent:hover .child, .parent:focus .child {
+      -ms-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2);
+  }
+
+  .parent:hover .child:before, .parent:focus .child:before {
+      display: block;
+  }
+
+  .parent:hover a, .parent:focus a {
+      display: block;
+  }
+/*  img{
+    width: 100%;
+  }*/
+
+  .flipCard{
+    position: relative;
+    display: block;
+        margin: 0;
+    padding:0;
+  }
+
+  .row:hover .flipCard{
+    position: relative;
+    display: block;
+        margin: 0;
+    padding:0;
+  }
+  .img-top{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding:0;
+    opacity: 1;
+    
+  }
+
+  .flipCard:hover .img-top {
+    display: block;
+    opacity: 1;
+
+  }
+
+
+  .reminder {
+    text-align: center;
+    font-size: 18px;
+    padding: 8px;
+    margin: auto;
+    margin-top: 5%;
+    background-color: lightgray;
+    border-radius: 16px;
+    width: 30%;
+    color: white;
+  }
+
+img{
+    width: 100%;
+  }
+
+.openBox{
+  position: relative;
+  display: block;
+      margin: 0;
+  padding:0;
+}
+
+.row:hover .openBox{
+  position: relative;
+  display: block;
+      margin: 0;
+  padding:0;
+  opacity: 0.8;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.row:hover .middle {
+
+  opacity: 1;
+
+}
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  /*position: fixed;*/ /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 20%;
+  top: 10%;
+  width: 60%; /* Full width */
+  height: 80%;  /*Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  /*background-color: rgba(0,0,0,0.9);*/ /* Black w/ opacity */
+
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 60%;
+
+/*  max-width: 700px;
+*/}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 60%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 80%;
+  }
+}
+
+/*.modalImg{
+  width: 100%;
+}*/
+
+.jumbotron{
+  margin-bottom: 0;
+  margin-top: 10%;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+
+
+/* 3. ScrollSpy active styles (see JS tab for activation) */
+.section-nav li.active > a {
+    color: #333;
+    font-weight: 500;
+    margin: 5%;
+    font-size: 24px;
+}
+
+/* Sidebar Navigation */
+.section-nav {
+  margin-right: 5%;
+  padding: 0;
+  width: 20%;
+/*  background-color: #f1f1f1;
+*/  opacity: 80%;
+  margin-top: 8%;
+  margin-bottom: 5%;
+
+  position: fixed;
+  height: 80%;
+  overflow: auto;
+  z-index: 1;
+  text-align: right;
+}
+
+.section-nav a {
+    text-decoration: none;
+    display: block;
+    padding: .125rem 0;
+    color: #ccc;
+    transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+}
+
+.section-nav a:hover,
+.section-nav a:focus {
+    color: #666;
+}
+
+
+.section-nav ul, ol{
+      list-style: none;
+      padding-bottom: 10%;
+
+}
+
+.section-nav ul{
+  padding-right: 10%;
+}
+
+
+.img-9{
+  width: 100%;
+}
+
