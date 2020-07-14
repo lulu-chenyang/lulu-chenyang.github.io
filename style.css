@@ -42,6 +42,10 @@
     font-size: 40px;
     font-family: 'Domine', serif;
   }
+  h6.figure-title{
+    margin: 5%;
+    text-align: center;
+  }
 
   .download{
     margin-top: 5%;
