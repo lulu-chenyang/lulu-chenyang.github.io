@@ -73,7 +73,7 @@
 
   .card_img{
 /*    height: 70%;
-*/    width: 90%;
+*/    width: 100%;
     margin: auto;
 /*    background-color: lightgray;
 */  }
@@ -84,14 +84,18 @@
     background-color: lightgray;
   }
   .card_des{
-    width: 90%;
-    margin: auto;
-    padding-top: 1%;
-  padding: 5%;
+    width: 100%;
+/*    margin: auto;*/
+/*    padding-top: 1%;*/
+    padding: 5%;
 
 /*  width: 100%;
 *//*  background-color: lightgray;
 */}
+
+.card_des p{
+  color: #7f8c8d;
+}
   .card{
     height: 100%;
   }
