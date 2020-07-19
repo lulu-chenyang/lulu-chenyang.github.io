@@ -11,20 +11,22 @@
     line-height: 1.6;
     font-size: 18px;
   }
+  nav{
+    background-color: white;
 
-
+  }
 
 
   .navbar-nav{
     margin: 1.5%;
+
   }
+
   .fakeimg {
     height: 200px;
     background: #aaa;
   }
-  .nav_img{
-  	width: 100%;
-  }
+
 
 
   .sidebar p{
@@ -106,6 +108,7 @@
     display: block;
     margin: auto;
     width: 95%;
+    margin-top: 20%;
     margin-bottom: 15%;
 /*    margin-right: 10%;
 */    
@@ -469,3 +472,21 @@ html {
 
   
 }
+
+.bottom-nav{
+margin-top: 20%;
+}
+.bottom-nav p{
+  font-size: 24px;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+
+
+
+
+
+
+
+
