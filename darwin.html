@@ -14,25 +14,31 @@
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-right">  
-  <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+<nav class="navbar fixed-top navbar-light navbar-expand-lg justify-content-end">
+
+
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link text-dark" href="index.html">Project</a>
+        <a class="nav-link text-dark btn_project" href="index.html">Project</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="aboutme.html">About Me</a>
       </li>
-      <li class="nav-item">        
-      	<a class="nav-link text-dark " target="_blank" rel="noopener noreferrer" href="img/me/ChenyangLu_resume.pdf">CV</a>
+      <li class="nav-item">
+        <a class="nav-link text-dark " target="_blank" rel="noopener noreferrer" href="img/me/ChenyangLu_resume.pdf">CV</a>
       </li>    
     </ul>
   </div>  
 </nav>
 
 
-
-<div><img style="width: 100%;" src="img/work/darwin/Darwin_home.png"></div>
+<div><img class="landing-img" src="img/work/darwin/Darwin_home.png"></div>
 <div class="container come-in">
 	<h1>DARWIN</h1>
 	<h5>Smart Home｜Mobile App｜Tablet App｜Health & Well-being｜Indoor Environment｜Monthly Report</h5>
@@ -554,11 +560,11 @@
 	</div>
 
 
-	<div class="row bottom-nav">
-		<button type="button" class="btn">
+	<div class="row bottom-nav section">
+		<a href="mindbreaks.html"><button type="button" class="btn">
 		<h4>Next Project</h4>
 		<p>Mindbreaks</p> 
-		</button>
+		</button></a>
 		<!-- <div class="col-lg-3"><h4>Features Under Development</h4></div>
 		<div class="col-lg-9 overview">
 			<p>
