@@ -11,6 +11,13 @@
     line-height: 1.6;
     font-size: 18px;
   }
+  h4{
+    font-size: 32px;
+  }
+
+  .row{
+    margin-top: 20%;
+  }
 
 
 
@@ -38,7 +45,7 @@
     margin-bottom: 5%;
   }
   p.overview {
-    font-size: 24px;
+    font-size: 30px;
     margin-top: 10%;
     margin-bottom: 10%;
     font-family: 'Domine', serif;
