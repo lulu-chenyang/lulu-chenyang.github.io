@@ -7,12 +7,13 @@
     margin-top: 5%;
   }
   .col-lg-9 p, .col-lg-6 p, .overview p{
-    font-family: 'Domine', serif;
+/*    font-family: 'Domine', serif;*/
     line-height: 1.6;
     font-size: 18px;
+    color: black;
   }
   h4{
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .row{
@@ -44,21 +45,33 @@
     margin-top: 10%;
     margin-bottom: 5%;
   }
-  p.overview {
-    font-size: 30px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    font-family: 'Domine', serif;
-    font-weight: 200;
+  p{
+    color: #7f8c8d;
   }
+  p.intro {
+    color: black;
+    font-size: 24px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+/*    font-family: 'Domine', serif;
+    font-weight: 200;
+*/  }
+
 
   h2.overview.title{
-    font-size: 40px;
+    font-size: 48px;
     font-family: 'Domine', serif;
   }
   h6.figure-title{
     margin: 5%;
     text-align: center;
+    margin-bottom: 10%;
+  }
+  h1{
+    font-size: 48px;
+  }
+  .intro h5{
+    font-size: 24px;
   }
 
 
@@ -491,10 +504,123 @@ margin-top: 20%;
 }
 
 
+.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  padding-top: 5%;
+  top: 0px;
+
+}
+.wrap {
+  position: relative;
+  margin-left: 15%;
+  margin-right: 15%;
+
+  overscroll-behavior: contain;
+}
 
 
 
+#trainMotion {
+    margin-top: 50px;
+
+}
+
+#trainMotion div {
+    transform: translate(100%, 0%);
+}
+
+#trainMotion.choochoo div {
+    transition: all 0.9s ease-out;
+    transform: translate(0%, 0%);
+}
+
+.container_0{
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+}
+.container_1{
+  width: 25%;
+/*  margin-left: 10%;
+*/  margin-top: 10%;
+  
+  
+}
+.container_2{
+  width: 65%;
+  margin-left: 30%;
+  margin-top: 10%;
+  position: relative;
+}
+
+.container_1, .container_2{
+  display: inline-block;
+
+}
+
+.container_3{
+  width: 60%;
+  margin-right: 0;
+  margin-top: 10%;
+}
+
+.container_4{
+  width: 30%;
+  margin-left: 5%;
+  margin-top: -30%;
+  position: relative;
+}
+
+#toLeft{
+  width: 40%;
+  margin-left: 65%;
+  margin-top: -30%;
+}
 
 
+.static_img{
+  margin-top: -30%;
+
+}
+
+.feature{
+  height: 80px;
+padding-top: 8px;
+padding-bottom: 4px;
+margin:1%;
+text-align: center;
+opacity: 60%;
+margin-bottom: 20px;
+border-radius: 16px;
+background-color: #1A2B50;
+color: white;
+vertical-align: center;
+z-index: 1;
+}
+
+#problem .feature{
+height: 80px;
+padding: auto;
+opacity: 1;
+margin: 1%;
+
+text-align: left;
 
 
+border-radius: 8px;
+/*background-color: red;*/
+color: white;
+
+
+}
+
+#problem .feature p{
+  padding: 5%;
+
+}
+
+.goal{
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
