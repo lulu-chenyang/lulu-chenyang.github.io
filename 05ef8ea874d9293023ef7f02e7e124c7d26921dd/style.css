@@ -125,11 +125,12 @@
     margin-top: 5%;
   }
   .slogan{
+    z-index: 1;
     display: block;
     margin: auto;
     width: 95%;
-    margin-top: 20%;
-    margin-bottom: 15%;
+    margin-top: 15%;
+    margin-bottom: 10%;
 /*    margin-right: 10%;
 */    
     font-family: 'Roboto Slab', serif;
