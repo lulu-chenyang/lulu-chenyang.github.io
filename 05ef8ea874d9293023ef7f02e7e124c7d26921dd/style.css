@@ -27,6 +27,18 @@
 
   }
 
+  .navbar-nav li a:hover{
+
+    text-decoration: underline;
+
+  }
+
+  .navbar-nav li a:active{
+    font-weight: 300px;
+    text-decoration: underline;
+
+  }
+
   .fakeimg {
     height: 200px;
     background: #aaa;
@@ -111,9 +123,7 @@
 /*    padding-top: 1%;*/
     padding: 5%;
 
-/*  width: 100%;
-*//*  background-color: lightgray;
-*/}
+  }
 
 .card_des p{
   color: #7f8c8d;
@@ -134,7 +144,7 @@
 /*    margin-right: 10%;
 */    
     font-family: 'Roboto Slab', serif;
-    font-size: 42px;
+    font-size: 48px;
 
   }
 /*  mark{
