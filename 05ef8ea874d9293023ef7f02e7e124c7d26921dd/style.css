@@ -139,6 +139,9 @@
   .row{
     margin-top: 5%;
   }
+
+
+
   .slogan{
     z-index: 1;
     display: block;
@@ -149,7 +152,11 @@
 /*    margin-right: 10%;
 */    
     font-family: 'Roboto Slab', serif;
+    
+/*    font-family: 'SF Pro Icons', sans-serif;*/
     font-size: 48px;
+
+
 
   }
 /*  mark{
